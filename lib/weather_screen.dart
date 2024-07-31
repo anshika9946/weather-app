@@ -3,9 +3,32 @@ import "dart:ui";
 import "package:flutter/material.dart";
 import "package:weatherapp/additional_info_item.dart";
 import "package:weatherapp/hourly_forecast_item.dart";
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:http/http.dart' as http;
 
-class WeatherScreen extends StatelessWidget {
+class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
+
+  @override
+  State<WeatherScreen> createState() => _WeatherScreenState();
+}
+
+class _WeatherScreenState extends State<WeatherScreen> {
+  @override
+  void initState() {
+    super.initState();
+    getCurrentWeather();
+  }
+
+  Future getCurrentWeather() async {
+    String cityName = 'Ghaziabad';
+    String? apiKey = dotenv.env['openWeatherAPIKey'];
+    final res = await http.get(
+      Uri.parse(
+          'https://api.openweathermap.org/data/2.5/weather?q=$cityName,uk&APPID=$apiKey'),
+    );
+    print(res.body);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +68,7 @@ class WeatherScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            '300F',
+                            '300K',
                             style: TextStyle(
                               fontSize: 32,
                               fontWeight: FontWeight.bold,
@@ -93,22 +116,22 @@ class WeatherScreen extends StatelessWidget {
                     value: '91',
                   ),
                   HourlyForecastItem(
-                    icon: Icons.water_drop,
+                    icon: Icons.cloud,
                     degree: 'Humididty',
                     value: '91',
                   ),
                   HourlyForecastItem(
-                    icon: Icons.water_drop,
+                    icon: Icons.sunny,
                     degree: 'Humididty',
                     value: '91',
                   ),
                   HourlyForecastItem(
-                    icon: Icons.water_drop,
+                    icon: Icons.sunny,
                     degree: 'Humididty',
                     value: '91',
                   ),
                   HourlyForecastItem(
-                    icon: Icons.water_drop,
+                    icon: Icons.cloud,
                     degree: 'Humididty',
                     value: '91',
                   ),
