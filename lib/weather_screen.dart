@@ -1,7 +1,8 @@
 import "dart:ui";
 
 import "package:flutter/material.dart";
-import "package:flutter/widgets.dart";
+import "package:weatherapp/additional_info_item.dart";
+import "package:weatherapp/hourly_forecast_item.dart";
 
 class WeatherScreen extends StatelessWidget {
   const WeatherScreen({super.key});
@@ -75,17 +76,45 @@ class WeatherScreen extends StatelessWidget {
               child: Text(
                 'Weather Forcast',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            const Placeholder(
-              fallbackHeight: 120,
+            const SizedBox(height: 12),
+            //Weather forecast cards
+            const SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  HourlyForecastItem(),
+                  HourlyForecastItem(),
+                  HourlyForecastItem(),
+                  HourlyForecastItem(),
+                  HourlyForecastItem(),
+                ],
+              ),
             ),
+
             const SizedBox(height: 20),
-            const Placeholder(
-              fallbackHeight: 120,
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Additional Information',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                AdditionalInfoItem(),
+                AdditionalInfoItem(),
+                AdditionalInfoItem(),
+              ],
             ),
           ],
         ),
