@@ -1,47 +1,32 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
-      ),
-    );
-  }
-}
-
 class AdditionalInfoItem extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final String value;
   const AdditionalInfoItem({
     super.key,
+    required this.icon,
+    required this.label,
+    required this.value,
   });
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
         Icon(
-          Icons.water_drop,
+          icon,
           size: 32,
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Text(
-          'Humidity',
+          label,
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
         Text(
-          '94',
-          style: TextStyle(
+          value,
+          style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),

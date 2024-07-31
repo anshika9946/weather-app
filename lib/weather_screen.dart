@@ -87,11 +87,31 @@ class WeatherScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  HourlyForecastItem(),
-                  HourlyForecastItem(),
-                  HourlyForecastItem(),
-                  HourlyForecastItem(),
-                  HourlyForecastItem(),
+                  HourlyForecastItem(
+                    icon: Icons.water_drop,
+                    degree: 'Humididty',
+                    value: '91',
+                  ),
+                  HourlyForecastItem(
+                    icon: Icons.water_drop,
+                    degree: 'Humididty',
+                    value: '91',
+                  ),
+                  HourlyForecastItem(
+                    icon: Icons.water_drop,
+                    degree: 'Humididty',
+                    value: '91',
+                  ),
+                  HourlyForecastItem(
+                    icon: Icons.water_drop,
+                    degree: 'Humididty',
+                    value: '91',
+                  ),
+                  HourlyForecastItem(
+                    icon: Icons.water_drop,
+                    degree: 'Humididty',
+                    value: '91',
+                  ),
                 ],
               ),
             ),
@@ -111,9 +131,21 @@ class WeatherScreen extends StatelessWidget {
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                AdditionalInfoItem(),
-                AdditionalInfoItem(),
-                AdditionalInfoItem(),
+                AdditionalInfoItem(
+                  icon: Icons.water_drop,
+                  label: 'Humididty',
+                  value: '91',
+                ),
+                AdditionalInfoItem(
+                  icon: Icons.air,
+                  label: 'Wind Speed',
+                  value: '7.5',
+                ),
+                AdditionalInfoItem(
+                  icon: Icons.beach_access,
+                  label: 'Pressure',
+                  value: '100',
+                ),
               ],
             ),
           ],
