@@ -272,7 +272,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
       return data;
     } catch (e) {
-      print('Error fetching weather data: $e');
       rethrow;
     }
   }
